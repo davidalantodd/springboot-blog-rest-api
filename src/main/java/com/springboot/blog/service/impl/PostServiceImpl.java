@@ -51,7 +51,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public PostDto updatePost(PostDto postDto, long id) {
-        // get post by id from the database
+        // get post by id from the database, throw exception if it does not exist
         Post post = postRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
 
         // update content of post from the request body
@@ -63,6 +63,15 @@ public class PostServiceImpl implements PostService {
         Post updatedPost = postRepository.save(post);
         // return DTO of updated post
         return mapToDTO(updatedPost);
+    }
+
+    @Override
+    public void deletePostById(long id) {
+        // get post by id from the database, throw exception if it does not exist
+        Post post = postRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
+
+        //use .delete() method to delete the entity from the database
+        postRepository.delete(post);
     }
 
     //create reusable function to convert entity to DTO

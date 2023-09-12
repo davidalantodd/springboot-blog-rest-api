@@ -2,6 +2,7 @@ package com.springboot.blog.controller;
 
 import com.springboot.blog.payload.PostDto;
 import com.springboot.blog.service.PostService;
+import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -43,6 +44,14 @@ public class PostController {
         PostDto postResponse = postService.updatePost(postDto, id);
         //return updated post and status in a ResponseEntity
         return new ResponseEntity<>(postResponse, HttpStatus.OK);
+    }
 
+    // delete post by ID
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deletePost(@PathVariable(name = "id") long id){
+        // call deletePostById method
+        postService.deletePostById(id);
+        // return a response entity with a string to indicate the post was deleted
+        return new ResponseEntity<>("Post entity deleted successfully.", HttpStatus.OK);
     }
 }
