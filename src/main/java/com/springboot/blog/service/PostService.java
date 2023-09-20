@@ -7,7 +7,8 @@ import java.util.List;
 public interface PostService {
     PostDto createPost(PostDto postDto);    //return type is PostDto
 
-    List<PostDto> getAllPosts();
+    // add functionality for pagination
+    List<PostDto> getAllPosts(int pageNo, int pageSize);
 
     PostDto getPostById(long id);
 

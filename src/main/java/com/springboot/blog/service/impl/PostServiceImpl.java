@@ -6,6 +6,9 @@ import com.springboot.blog.payload.PostDto;
 import com.springboot.blog.repository.PostRepository;
 import com.springboot.blog.service.PostService;
 import jakarta.annotation.Resource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -33,12 +36,20 @@ public class PostServiceImpl implements PostService {
         return postResponse;
     }
 
+    // add pagination functionality
     @Override
-    public List<PostDto> getAllPosts() {
-        // use postRepository to find all posts
-        List<Post> posts = postRepository.findAll();
+    public List<PostDto> getAllPosts(int pageNo, int pageSize) {
+        //create Pageable instance
+        Pageable pageable = PageRequest.of(pageNo, pageSize);
+
+        // use postRepository to find all posts, include pagination
+        Page<Post> posts = postRepository.findAll(pageable);
+
+        // get content for page object, convert to List
+        List<Post> listOfPosts = posts.getContent();
+
         //convert all posts to DTO entity, using stream, lambda function to map over posts
-        return posts.stream().map(post -> mapToDTO(post)).collect(Collectors.toList());
+        return listOfPosts.stream().map(post -> mapToDTO(post)).collect(Collectors.toList());
     }
 
     @Override

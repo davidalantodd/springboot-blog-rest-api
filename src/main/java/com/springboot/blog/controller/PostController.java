@@ -26,9 +26,13 @@ public class PostController {
     }
 
     // get all blog posts
+    // update functionality to include pagination
     @GetMapping
-    public List<PostDto> getAllPosts(){
-        return postService.getAllPosts();
+    public List<PostDto> getAllPosts(
+            @RequestParam(value = "pageNo", defaultValue = "0", required = false) int pageNo,
+            @RequestParam(value = "pageSize", defaultValue = "10", required = false) int pageSize
+    ){
+        return postService.getAllPosts(pageNo, pageSize);
     }
 
     // get post by ID
