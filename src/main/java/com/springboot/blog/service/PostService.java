@@ -9,7 +9,7 @@ public interface PostService {
     PostDto createPost(PostDto postDto);    //return type is PostDto
 
     // add functionality for pagination
-    PostResponse getAllPosts(int pageNo, int pageSize);
+    PostResponse getAllPosts(int pageNo, int pageSize, String sortBy);
 
     PostDto getPostById(long id);
 

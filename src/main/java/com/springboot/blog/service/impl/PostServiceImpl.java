@@ -10,6 +10,7 @@ import jakarta.annotation.Resource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -39,9 +40,9 @@ public class PostServiceImpl implements PostService {
 
     // add pagination functionality
     @Override
-    public PostResponse getAllPosts(int pageNo, int pageSize) {
-        //create Pageable instance
-        Pageable pageable = PageRequest.of(pageNo, pageSize);
+    public PostResponse getAllPosts(int pageNo, int pageSize, String sortBy) {
+        //create Pageable instance, include pagination and sorting arguments
+        Pageable pageable = PageRequest.of(pageNo, pageSize, Sort.by(sortBy));
 
         // use postRepository to find all posts, include pagination
         Page<Post> posts = postRepository.findAll(pageable);
