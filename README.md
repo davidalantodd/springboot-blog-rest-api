@@ -15,11 +15,15 @@ In addition, users can manage comments on specific posts by:
 * updating Comment
 * deleting Comment
 
-Posts and Comments are stored in a MySQL database, and the ModelMapper library was implemented to convert JPA entities to and from DTOs
+Additional features:
+* Posts and Comments are stored in a MySQL database, and the ModelMapper library was implemented to convert JPA entities to and from DTOs
+* Field validation on create/update Post endpoints and update Comment endpoint using Hibernate Validator
+* Basic Auth implemented via Spring Security
 
 Technologies used:
 * Java
 * Spring
 * Spring Boot
+* Spring Security
 * MySQL Workbench
 
