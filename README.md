@@ -1,4 +1,4 @@
-# springboot-blog-rest-api
+# Spring Boot Blog REST API
 
 A Java Spring Boot REST API blog project built using this [Udemy tutorial](https://www.udemy.com/course/building-real-time-rest-apis-with-spring-boot)
 
@@ -19,11 +19,13 @@ Additional features:
 * Posts and Comments are stored in a MySQL database, and the ModelMapper library was implemented to convert JPA entities to and from DTOs
 * Field validation on create/update Post endpoints and update Comment endpoint using Hibernate Validator
 * Basic Auth implemented via Spring Security
+* Database Authentication implemented for users with role-based resource access (user vs. admin)
 
 Technologies used:
 * Java
 * Spring
 * Spring Boot
 * Spring Security
+* Spring Data
 * MySQL Workbench
 
