@@ -20,6 +20,7 @@ Additional features:
 * Field validation on create/update Post endpoints and update Comment endpoint using Hibernate Validator
 * Basic Auth implemented via Spring Security
 * Database Authentication implemented for users with role-based resource access (user vs. admin)
+* JWT Authentication implemented via Spring Security
 
 Technologies used:
 * Java
