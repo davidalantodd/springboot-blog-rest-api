@@ -35,4 +35,8 @@ public class Post {
     //Set does not allow duplicates, CascadeType/orphanRemoval to make sure children are treated same as parents, removed when parents are deleted
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Comment> comments = new HashSet<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Category category;
 }

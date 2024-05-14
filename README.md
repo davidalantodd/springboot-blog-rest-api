@@ -8,6 +8,7 @@ A RESTful API for a blog application enabling users to:
   * with pagination and sorting functionality
 * update Post
 * delete Post
+* get all Post(s) with a specific category
 
 In addition, users can manage comments on specific posts by:
 * creating a new Comment
@@ -15,12 +16,19 @@ In addition, users can manage comments on specific posts by:
 * updating Comment
 * deleting Comment
 
+Users can also manage categories to group blog posts by
+* creating a Category
+* getting Category(/ies)
+* updating Category
+* deleting Category
+
 Additional features:
 * Posts and Comments are stored in a MySQL database, and the ModelMapper library was implemented to convert JPA entities to and from DTOs
 * Field validation on create/update Post endpoints and update Comment endpoint using Hibernate Validator
 * Basic Auth implemented via Spring Security
-* Database Authentication implemented for users with role-based resource access (user vs. admin)
 * JWT Authentication implemented via Spring Security
+* Database Authentication implemented for users with role-based resource access (user vs. admin)
+* Get endpoints are accessible by all users, but Post/Put/Delete endpoints are only accessible to admin users
 
 Technologies used:
 * Java
