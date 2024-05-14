@@ -29,6 +29,8 @@ Additional features:
 * JWT Authentication implemented via Spring Security
 * Database Authentication implemented for users with role-based resource access (user vs. admin)
 * Get endpoints are accessible by all users, but Post/Put/Delete endpoints are only accessible to admin users
+* Documented using SpringDoc OpenAPI and accessible via `.../swagger-ui/index.html` and `.../v3/api-docs`
+  * (e.g. `http://localhost:8080/swagger-ui/index.html`)
 
 Technologies used:
 * Java
@@ -37,4 +39,8 @@ Technologies used:
 * Spring Security
 * Spring Data
 * MySQL Workbench
+* SpringDoc OpenAPI
+* Swagger UI
+
+
 
